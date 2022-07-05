@@ -28,7 +28,7 @@
 8. copy data dari sheet `update_merchant_application`, masukin ke dalam `update_merchant_application.csv` menggunakan vim
 9. run command di dalam vim untuk melakukan regex
    ```
-      :%s/\t/,/g`
+      :%s/\t/,/g
    ```
 10. command untuk execute `update_merchant_application.py`
    ```
@@ -47,7 +47,7 @@
 15. copy data dari sheet `insert_loan`, masukin ke dalam `insert_loan.csv` menggunakan vim
 16. run command di dalam vim untuk melakukan regex
    ```
-      :%s/\t/,/g`
+      :%s/\t/,/g
    ```
 17. execute `insert_loan.py`
    ```
@@ -61,7 +61,7 @@
 21. copy data dari sheet `update_loan_status`, masukin ke dalam `update_loan_status.csv` menggunakan vim
 22. run command di dalam vim untuk melakukan regex
    ```
-      :%s/\t/,/g`
+      :%s/\t/,/g
    ```
 23. execute `update_loan_status.py`
    ```
