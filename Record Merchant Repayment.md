@@ -33,6 +33,6 @@
    ```
 11. buat cek
    ```
-      cat repayment.csv.log
+      cat insert_repayment.csv.log
    ```
 12. report ke Vindy
