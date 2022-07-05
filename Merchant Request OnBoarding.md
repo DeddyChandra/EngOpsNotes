@@ -1,3 +1,4 @@
+# Merchant Request OnBoarding
 1. Setup Jira Task
    1. 448 Epic
    2. Set Inprogress
@@ -11,7 +12,7 @@
 4. Perbaiki data di sheet `upsert_merchant` dan `upsert_owner` jika ada koma (,), maka harus gunakan petik dua ("")
 5. Perbaiki data kabupaten/kota alamat sesuai dengan enumeration dan nomor telp `upsert_merchant`
 6. cek seluruh NPWP (15 digit saja)
-7. 
+7. start aws prod
    ```
       gsts
       aws --profile DeddyChandra@tvlk-mfc-prod ssm start-session --target i-0259605d566873963
@@ -20,15 +21,29 @@
       cd mf-plutus-scripts/merchant-lending-scripts/merchants/
    ```
 8. copy data dari sheet `upsert_merchant`, masukin ke dalam `upsert_merchant.csv` menggunakan vim
-9. run command `:%s/\t/,/g` untuk melakukan regex
-10. ```
+9. run command di dalam vim untuk melakukan regex
+   ```
+      :%s/\t/,/g
+   ```
+10. execute `upsert_merchant.py`
+   ```
       pipenv run python upsert_merchant.py --env prod upsert_merchant.csv
    ```
-11. cat `upsert_merchant.csv.log` buat cek
+11. buat cek
+   ```
+      cat upsert_merchant.csv.log
+   ```
 12. copy data dari sheet `upsert_owner`, masukin ke dalam `upsert_owner.csv` menggunakan vim
-13. run command `:%s/\t/,/g` untuk melakukan regex
-14. ```
+13. run command di dalam vim untuk melakukan regex
+   ```
+      :%s/\t/,/g
+   ```
+14. execute `upsert_owner.py` 
+   ```
       pipenv run python upsert_owner.py --env prod upsert_owner.csv
    ```
-14. cat `upsert_owner.csv.log` buat cek
-15. report ke Vindy
+14. buat cek
+   ```
+       cat upsert_owner.csv.log
+   ```
+16. report ke Vindy
