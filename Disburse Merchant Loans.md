@@ -1,3 +1,4 @@
+# Disburse Merchant Loans
 1. Setup Jira Task
    1. 448 Epic
    2. Set Inprogress
@@ -20,27 +21,42 @@
    ```
       psql -h mfcmlms-postgres-0e3a534c1dea98d8.cmzemiutf0bp.ap-southeast-1.rds.amazonaws.com -U ro_user -p 5432 -d merchantlending
    ``` -->
-6. Buat cari loanId 
+3. Buat cari loanId 
    ```
       curl https://mfcmlms.prod.mfc.tvlk-pay.cloud/v1/loans?loanExternalId=<loanId> | python3 -m json.tool
    ```
-7. masukin data ke sheet `update_loan_status`, loanStatus diganti jadi `LOAN_AGREEMENT_SIGNED`
-8. ```
+4. masukin data ke sheet `update_loan_status`, loanStatus diganti jadi `LOAN_AGREEMENT_SIGNED`
+5. Start aws production
+   ```
       gsts
       aws --profile DeddyChandra@tvlk-mfc-prod ssm start-session --target i-0259605d566873963
       bash
       cd mf-plutus-scripts/merchant-lending-scripts/loans/
    ```
-9.  copy data dari sheet `update_loan_status`, masukin ke dalam `update_loan_status.csv` menggunakan vim
-10. run command `:%s/\t/,/g` untuk melakukan regex
-11. ```
+6. copy data dari sheet `update_loan_status`, masukin ke dalam `update_loan_status.csv` menggunakan vim
+7. run command di dalam vim untuk melakukan regex
+   ```
+      `:%s/\t/,/g`
+   ```
+8. execute `update_loan_status.py`
+   ```
       pipenv run python update_loan_status.py --env prod update_loan_status.csv
    ```
-12. `cat update_loan_status.csv.log` buat cek
-13. sheet `update_loan_status`, loanStatus diganti jadi `OUTSTANDING`
-14. copy data dari sheet `update_loan_status`, masukin ke dalam `update_loan_status.csv` menggunakan vim
-15. run command `:%s/\t/,/g` untuk melakukan regex
-16. ```
+9. buat cek
+   ```
+      cat update_loan_status.csv.log
+   ```
+10. sheet `update_loan_status`, loanStatus diganti jadi `OUTSTANDING`
+11. copy data dari sheet `update_loan_status`, masukin ke dalam `update_loan_status.csv` menggunakan vim
+12. run command di dalam vim untuk melakukan regex
+   ```
+      `:%s/\t/,/g`
+   ```
+13. execute `update_loan_status.py` 
+   ```
       pipenv run python update_loan_status.py --env prod update_loan_status.csv
    ```
-17. `cat update_loan_status.csv.log` buat cek
+14. buat cek
+   ```
+      cat update_loan_status.csv.log
+   ```
