@@ -26,7 +26,10 @@
       cd mf-plutus-scripts/merchant-lending-scripts/merchants/
    ```
 8. copy data dari sheet `update_merchant_application`, masukin ke dalam `update_merchant_application.csv` menggunakan vim
-9. run command `:%s/\t/,/g` untuk melakukan regex
+9. run command di dalam vim untuk melakukan regex
+   ```
+      :%s/\t/,/g`
+   ```
 10. command untuk execute `update_merchant_application.py`
    ```
       pipenv run python update_merchant_application.py --env prod update_merchant_application.csv
@@ -42,7 +45,10 @@
    ```
 14. masukin data di sheet `insert_loan`
 15. copy data dari sheet `insert_loan`, masukin ke dalam `insert_loan.csv` menggunakan vim
-16. run command `:%s/\t/,/g` untuk melakukan regex
+16. run command di dalam vim untuk melakukan regex
+   ```
+      :%s/\t/,/g`
+   ```
 17. execute `insert_loan.py`
    ```
       pipenv run python insert_loan.py --env prod insert_loan.csv
@@ -53,7 +59,10 @@
    ```
 20. masukin data di sheet `update_loan_status`, set loanStatus menjadi `PENDING_LOAN_AGREEMENT`
 21. copy data dari sheet `update_loan_status`, masukin ke dalam `update_loan_status.csv` menggunakan vim
-22. run command `:%s/\t/,/g` untuk melakukan regex
+22. run command di dalam vim untuk melakukan regex
+   ```
+      :%s/\t/,/g`
+   ```
 23. execute `update_loan_status.py`
    ```
       pipenv run python update_loan_status.py --env prod update_loan_status.csv
