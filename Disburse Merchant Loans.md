@@ -36,7 +36,7 @@
 6. copy data dari sheet `update_loan_status`, masukin ke dalam `update_loan_status.csv` menggunakan vim
 7. run command di dalam vim untuk melakukan regex
    ```
-      `:%s/\t/,/g`
+      :%s/\t/,/g
    ```
 8. execute `update_loan_status.py`
    ```
@@ -50,7 +50,7 @@
 11. copy data dari sheet `update_loan_status`, masukin ke dalam `update_loan_status.csv` menggunakan vim
 12. run command di dalam vim untuk melakukan regex
    ```
-      `:%s/\t/,/g`
+      :%s/\t/,/g
    ```
 13. execute `update_loan_status.py` 
    ```
